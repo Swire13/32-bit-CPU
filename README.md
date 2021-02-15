@@ -26,12 +26,19 @@ Outputs of CPU are:
 BR = Bank of Registers
 
 instruction | full name           | OPCODE  | remaining bits and meaning of the instruction
+
 NOP         | no operation        | 0000000 | 25 bits unused; no operation
+
 ADD         | addition            | 0000001 | 7 bits unused, 6-bit dst register, 6-bit src1 register, 6-bit src2 register; BR[dst] = BR[src1] + BR[src2]
+
 SUB         | substract           | 0000010 | 7 bits unused, 6-bit dst register, 6-bit src1 register, 6-bit src2 register; BR[dst] = BR[src1] - BR[src2]
+
 AND         | bitwise AND         | 0000011 | 7 bits unused, 6-bit dst register, 6-bit src1 register, 6-bit src2 register; BR[dst] = BR[src1] & BR[src2]
+
 OR          | bitwise OR          | 0000100 | 7 bits unused, 6-bit dst register, 6-bit src1 register, 6-bit src2 register; BR[dst] = BR[src1] | BR[src2]
+
 XOR         | bitwise XOR         | 0000101 | 7 bits unused, 6-bit dst register, 6-bit src1 register, 6-bit src2 register; BR[dst] = BR[src1] ^ BR[src2]
+
 SHROL       | shift/rotate left   | 0000110 | 7 bits unused, 6-bit dst register, 6-bit src register, 1-bit rot, 5-bit const constant; BR[dst] = BR[src] << const (if rot == 1 then do rotation, else shift)
 SHROR       | shift/rotate right  | 0000111 | 7 bits unused, 6-bit dst register, 6-bit src register, 1-bit rot, 5-bit const constant; BR[dst] = BR[src] >> const (if rot == 1 then do rotation, else shift)
 WR          | write to RAM        | 00010   | 15 bits unused, 6-bit addr register, 6-bit src register; data_ram[addr] = BR[src]
